@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="null/img/avatar.png" class="js-avatar">
+			<img src="/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
 			
 		</a>
 
@@ -96,9 +96,9 @@
 				        
 							<li><a href="/archives">文章</a></li>
 				        
-							<li><a href="/tags/读书笔记">读书笔记</a></li>
+							<li><a href="/tags/读书笔记/index.html">读书笔记</a></li>
 				        
-							<li><a href="/tags/随笔">随笔</a></li>
+							<li><a href="/tags/随笔/index.html">随笔</a></li>
 				        
 						</ul>
 					</nav>
@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a>
+						<a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -168,7 +168,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img lazy-src="null/img/avatar.png" class="js-avatar">
+					<img src="null/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
 				
 			</div>
 			<hgroup>
@@ -184,9 +184,9 @@
 		        
 					<li><a href="/archives">文章</a></li>
 		        
-					<li><a href="/tags/读书笔记">读书笔记</a></li>
+					<li><a href="/tags/读书笔记/index.html">读书笔记</a></li>
 		        
-					<li><a href="/tags/随笔">随笔</a></li>
+					<li><a href="/tags/随笔/index.html">随笔</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -361,14 +361,74 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Hello" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/25/Hello/" class="article-date">
+  	<time datetime="2015-07-24T23:56:29.000Z" itemprop="datePublished">2015-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/25/Hello/">Hello world</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">参考博文1 Yikun</a>，<a href="http://zhangshixi.iteye.com/blog/672697" target="_blank" rel="external">参考博文2 zhangshixi</a></p>
+<ol>
+<li><em>什么时候会使用HashMap？他有什么特点？</em></li>
+<li><em>你知道HashMap的工作原理吗？</em></li>
+<li><em>你知道get和put的原理吗？equals()和hashCode()的都有什么作用？</em></li>
+<li><em>你知道hash的实现吗？为什么要这样实现？</em></li>
+<li><em>如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？</em></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
+      
 
       
       <div class="clearfix"></div>
@@ -410,7 +470,7 @@
 	var yiliaConfig = {
 		fancybox: true,
 		mathjax: true,
-		animate: true,
+		animate: false,
 		isHome: true,
 		isPost: false,
 		isArchive: false,
