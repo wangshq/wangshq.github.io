@@ -90,10 +90,7 @@
 你知道HashMap的工作原理吗？
 你知道get和put的原理吗？equals()和hashCode()的都有什么作用？
 你知道hash的实现吗？为什么要这样实现？
-如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？
-
-
-说明：HashMap的源码每个版本是有">
+如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单理解HashMap">
 <meta property="og:url" content="http://yoursite.com/2016/07/25/简单理解HashMap/index.html">
@@ -104,17 +101,14 @@
 你知道HashMap的工作原理吗？
 你知道get和put的原理吗？equals()和hashCode()的都有什么作用？
 你知道hash的实现吗？为什么要这样实现？
-如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？
-
-
-说明：HashMap的源码每个版本是有">
-<meta property="og:image" content="http://yoursite.com/./Image.png">
-<meta property="og:image" content="http://yoursite.com/./0c039b1c-d933-11e4-8c1e-7558a8766272.png">
-<meta property="og:image" content="http://yoursite.com/./293b52fc-d932-11e4-854d-cb47be67949a.png">
-<meta property="og:image" content="http://yoursite.com/./ceb6e6ac-d93b-11e4-98e7-c5a5a07da8c4.png">
-<meta property="og:image" content="http://yoursite.com/./519be432-d93c-11e4-85bb-dff0a03af9d3.png">
-<meta property="og:image" content="http://yoursite.com/./d7acbad8-d941-11e4-9493-2c5e69d084c0.png">
-<meta property="og:updated_time" content="2016-08-30T09:51:58.563Z">
+如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/Image.png">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/0c039b1c-d933-11e4-8c1e-7558a8766272.png">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/293b52fc-d932-11e4-854d-cb47be67949a.png">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/ceb6e6ac-d93b-11e4-98e7-c5a5a07da8c4.png">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/519be432-d93c-11e4-85bb-dff0a03af9d3.png">
+<meta property="og:image" content="http://yoursite.com/简单理解HashMap/d7acbad8-d941-11e4-9493-2c5e69d084c0.png">
+<meta property="og:updated_time" content="2016-08-30T10:46:34.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单理解HashMap">
 <meta name="twitter:description" content="参考博文1 Yikun，参考博文2 zhangshixi
@@ -123,11 +117,8 @@
 你知道HashMap的工作原理吗？
 你知道get和put的原理吗？equals()和hashCode()的都有什么作用？
 你知道hash的实现吗？为什么要这样实现？
-如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？
-
-
-说明：HashMap的源码每个版本是有">
-<meta name="twitter:image" content="http://yoursite.com/./Image.png">
+如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？">
+<meta name="twitter:image" content="http://yoursite.com/简单理解HashMap/Image.png">
 
 
 
@@ -330,15 +321,16 @@
 <li><em>你知道hash的实现吗？为什么要这样实现？</em></li>
 <li><em>如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？</em></li>
 </ol>
+<a id="more"></a>
 <blockquote>
 <p>说明：HashMap的源码每个版本是有一些细微的差别，但是大体上都差不多，下面我整理的是jdk1.6的。有一个比较明显的区别是在1.8如果发生了碰撞的时候在一定值之前使用链表进行表示，在超过这个值的时候用的是红黑树。</p>
 </blockquote>
 <p><strong>HashMap</strong>是实现Map接口的类，是非线程安全的。允许null键，和null值。不保证映射的顺序</p>
 <ul>
-<li>结构示意图：在java里，所有的数据结构基本上都是由数组，引用来组成的。HashMap实际上是由 一个数组链表组成的。如图所示：<br><img src="./Image.png" alt="Alt text"></li>
+<li>结构示意图：在java里，所有的数据结构基本上都是由数组，引用来组成的。HashMap实际上是由 一个数组链表组成的。如图所示：<br><img src="简单理解HashMap/Image.png" alt="logo"></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">HashMap&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</div><div class="line">map.put(&quot;语文&quot;, 1);</div><div class="line">map.put(&quot;数学&quot;, 2);</div><div class="line">map.put(&quot;英语&quot;, 3);</div><div class="line">map.put(&quot;历史&quot;, 4);</div><div class="line">map.put(&quot;政治&quot;, 5);</div><div class="line">map.put(&quot;地理&quot;, 6);</div><div class="line">map.put(&quot;生物&quot;, 7);</div><div class="line">map.put(&quot;化学&quot;, 8);</div></pre></td></tr></table></figure>
-<p><img src="./0c039b1c-d933-11e4-8c1e-7558a8766272.png" alt="Alt text"></p>
+<p><img src="简单理解HashMap/0c039b1c-d933-11e4-8c1e-7558a8766272.png" alt="0c039b1c-d933-11e4-8c1e-7558a8766272.png"></p>
 <ul>
 <li>HashMap中的数组里的类型是Entry的（java8里换了个，叫Node：节点，它是用树这种数据结构）</li>
 <li>Entry的源码如下，next的就是向下的引用（指针），这个会构成链表<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * The table, resized as necessary. Length MUST Always be a power of two.</div><div class="line"> */</div><div class="line">transient Entry[] table;</div><div class="line"></div><div class="line">static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;</div><div class="line">    final K key;</div><div class="line">    V value;</div><div class="line">    Entry&lt;K,V&gt; next;</div><div class="line">    final int hash;</div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -359,7 +351,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">static final int hash(Object key) &#123;</div><div class="line">    int h;</div><div class="line">    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</div><div class="line">&#125;</div><div class="line"></div><div class="line">(n - 1) &amp; hash</div></pre></td></tr></table></figure>
 <hr>
-<p><img src="./293b52fc-d932-11e4-854d-cb47be67949a.png" alt="Alt text"></p>
+<p><img src="简单理解HashMap/293b52fc-d932-11e4-854d-cb47be67949a.png" alt="293b52fc-d932-11e4-854d-cb47be67949a"></p>
 <ul>
 <li>put方法的总结：</li>
 </ul>
@@ -393,14 +385,14 @@
 <p>Initializes or doubles table size. If null, allocates in accord with initial capacity target held in field threshold. Otherwise, because we are using power-of-two expansion, the elements from each bin must either stay at same index, or move with a power of two offset in the new table.<br>大致意思就是说，当超过限制的时候会resize，然而又因为我们使用的是2次幂的扩展(指长度扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置。</p>
 </blockquote>
 <ul>
-<li>怎么理解呢？例如我们从16扩展为32时，具体的变化如下所示：<br><img src="./ceb6e6ac-d93b-11e4-98e7-c5a5a07da8c4.png" alt="Alt text"></li>
+<li>怎么理解呢？例如我们从16扩展为32时，具体的变化如下所示：<br><img src="简单理解HashMap/ceb6e6ac-d93b-11e4-98e7-c5a5a07da8c4.png" alt="logo"></li>
 <li>因此元素在重新计算hash之后，因为n变为2倍，那么n-1的mask范围在高位多1bit(红色)，因此新的index就会发生这样的变化：</li>
 </ul>
-<p><img src="./519be432-d93c-11e4-85bb-dff0a03af9d3.png" alt="Alt text"></p>
+<p><img src="简单理解HashMap/519be432-d93c-11e4-85bb-dff0a03af9d3.png" alt="logo"></p>
 <ul>
 <li>因此，我们在扩充HashMap的时候，不需要重新计算hash，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”。可以看看下图为16扩充为32的resize示意图：</li>
 </ul>
-<p><img src="./d7acbad8-d941-11e4-9493-2c5e69d084c0.png" alt="Alt text"><br>这个设计确实非常的巧妙，既省去了重新计算hash值的时间，而且同时，由于新增的1bit是0还是1可以认为是随机的，因此resize的过程，均匀的把之前的冲突的节点分散到新的bucket了。</p>
+<p><img src="简单理解HashMap/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" alt="logo"><br>这个设计确实非常的巧妙，既省去了重新计算hash值的时间，而且同时，由于新增的1bit是0还是1可以认为是随机的，因此resize的过程，均匀的把之前的冲突的节点分散到新的bucket了。</p>
 <p>###思考？为什么所HashMap不是线程安全的：</p>
 <blockquote>
 <p>此实现不是同步的。如果多个线程同时访问一个哈希映射，而其中至少一个线程从结构上修改了该映射，则它必须 保持外部同步。（结构上的修改是指添加或删除一个或多个映射关系的任何操作；仅改变与实例已经包含的键关联的值不是结构上的修改。）这一般通过对自然封装该映射的对象进行同步操作来完成。如果不存在这样的对象，则应该使用 Collections.synchronizedMap 方法来“包装”该映射。最好在创建时完成这一操作，以防止对映射进行意外的非同步访问，如下所示： Map m = Collections.synchronizedMap(new HashMap(…));</p>
