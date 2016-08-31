@@ -243,6 +243,250 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/31/第一章简介/" itemprop="url">
+                  《JAVA并发编程实战》笔记：第一章 简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T11:56:29+08:00" content="2016-08-31">
+              2016-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/31/第一章简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/31/第一章简介/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="为什么要在操作系统上实现多个程序同时执行"><a href="#为什么要在操作系统上实现多个程序同时执行" class="headerlink" title="为什么要在操作系统上实现多个程序同时执行　　"></a>为什么要在操作系统上实现多个程序同时执行　　</h3><p>&#160;　资源利用率、公平性、便利性</p>
+<h4 id="线程出现的好处"><a href="#线程出现的好处" class="headerlink" title="线程出现的好处"></a>线程出现的好处</h4><p>&#160;　降低开发成本丶提升性能、能将异步工作流转换成串行工作流、降低代码复杂度、<br>提高用户界面响应的灵敏度，听声资源利用率和系统吞吐率、简化jvm实现</p>
+<ol>
+<li><p>充分利用处理器：</p>
+<blockquote>
+<ul>
+<li>如果在双处理器上，如果程序只有一个线程那么只使用一半的cpu资源  </li>
+<li>如果设计正确，不论是多核的处理器还是单处理器都能获得更高的吞吐率  </li>
+<li>在多处理器上不用多说，可以同时执行两个线程肯定比执行一个线程另一半的cpu空闲要好  </li>
+<li>在单处理器上，如果是单线程的程序，会在等待其他操作，如 IO 网络时，cpu处于空闲状态。如果是多线程程序那么则在等待这些操作时可以切到另外一个线程上执行任务，总的说就是可以再IO阻塞期间可以继续运行</li>
+</ul>
+</blockquote>
+</li>
+<li><p>建模的简单性</p>
+<blockquote>
+<p>如果程序只有一种类型的任务，那么肯定比包含多种不同类型的任务要更容易的去编码。多线程正是把多个不同种类的任务放在了不同的线程上。这样就可以每个线程处理自己的任务，形成一种串行执行的假象（其实是在并行）<br>比如servlet，我们不需要知道现在有多少个请求，也不需要知道套接字的输入流和输出流是否被阻塞，当使用Servlet时就像在使用一个单线程程序。</p>
+</blockquote>
+</li>
+<li><p>异步时间的简化处理</p>
+<blockquote>
+<p>当有多个套接字链接请求时，这时如果是阻塞的IO则会出现一直阻塞的情况，而且在线程别阻塞的期间所有请求处理都会停顿。为了避免这个问题那么则服务器的应用程序需要使用非阻塞I/O，非阻塞I/O很复杂而且容易出错。好的做法是每个请求让它有自己的处理现场，那么处理请求时则不会影响其他请求</p>
+</blockquote>
+</li>
+<li><p>用户界面更灵敏的响应</p>
+<blockquote>
+<p>就是有一个主线程，有一个操作的时候就会单独创建一个线程来处理，这样就不会出现卡住之类的</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="线程带来的风险"><a href="#线程带来的风险" class="headerlink" title="线程带来的风险"></a>线程带来的风险</h4><ol>
+<li>安全性问题：执行的结果不可预测。在单线程工作好好的，到多线程就不行了</li>
+<li>活跃性问题：某个操作无法继续执行下去，串行的表现形式之一是无限循环，多线程就是一些死锁，饥饿等</li>
+<li>性能问题：多线程在切换上下文时会有性能开销，还有一些共享机制会一直编译器的优化</li>
+</ol>
+<h4 id="线程无处不在"><a href="#线程无处不在" class="headerlink" title="线程无处不在"></a>线程无处不在</h4><p>Servlet,gui,RMI….都用到了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/31/读书感悟/" itemprop="url">
+                  对如何选择读技术方面的书感悟
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T11:56:29+08:00" content="2016-08-31">
+              2016-08-31
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/31/读书感悟/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/31/读书感悟/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>最近自己在读《Java并发编程实战》这本书，还有小姨子刚刚毕业去大学读书，想要自学计算机，我给找该给她看什么书。突然对我自己该读什么样的书有所感悟：</p>
+</blockquote>
+<p>对于程序猿来说，读书是学习技术一种很好的途径。读书可以让你在学习一些基础技术和知识的时候更加的扎实。</p>
+<p>俗话说：多读书，读好书。对于学习技术来说什么类型的书才是“好书”？</p>
+<p>总体来说，技术(编程)的书可以分成两类：一种是偏理论，书中对知识点描述的非常详细，你可能看了一遍有点看不懂，还得反复的琢磨才能理解，但这种书中的单码示例，实际应用场景，或者用到了哪些API介绍的非常少。另外一种是偏实践，这种书就是和上面偏理论的相反了。比如《thinking in java》和《JAVA核心技术》这两本书。</p>
+<p>在我看来，你并不能定义说理论多的书就是比偏实践的要好，也不能说那种单码示例非常多的书比理论的书要好。这得看你自身的需求是什么。</p>
+<p>比如对应我来说，我现在进入工作一年，对于我来说像是一些Java基础之类的书我就不会在重新读一遍《thinking in java》这样的书了，我可能就会多看看能提升我代码水平的书或者网上的博客。但是我要想要了解我以前没有了解过的技术，而且我还要长时间的使用，那么我可能就要看一些更加细致，讲解理论更多的书。</p>
+<p>总之我给大家选择要读什么书的时候，一定不要盲目的取搜哪本书，一定要找到更加适合自己的书。希望大家都多读书多好书。(^o^)/</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/30/hello Blog/" itemprop="url">
                   Hello Blog
                 </a>
@@ -297,124 +541,6 @@
             <p>自己的博客终于装修完毕了，(^o^)/。<br>今后会在我的博客里写一些生活的感悟、读书笔记、和学习笔记。（其实这里主要还是更偏向技术一点的）<br>希望大家常来逛逛哦(^o^)/</p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/25/为什么要在操作系统上实现多个程序同时执行/" itemprop="url">
-                  《java并发编程实战》第一章
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-25T07:56:29+08:00" content="2016-08-25">
-              2016-08-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/25/为什么要在操作系统上实现多个程序同时执行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/为什么要在操作系统上实现多个程序同时执行/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="为什么要在操作系统上实现多个程序同时执行"><a href="#为什么要在操作系统上实现多个程序同时执行" class="headerlink" title="为什么要在操作系统上实现多个程序同时执行　　"></a>为什么要在操作系统上实现多个程序同时执行　　</h3><p> 　资源利用率、公平性、便利性</p>
-<h4 id="线程出现的好处"><a href="#线程出现的好处" class="headerlink" title="线程出现的好处"></a>线程出现的好处</h4><p> 　降低开发成本丶提升性能、能将异步工作流转换成串行工作流、降低代码复杂度、<br>提高用户界面响应的灵敏度，听声资源利用率和系统吞吐率、简化jvm实现</p>
-<ol>
-<li><p>充分利用处理器：</p>
-<blockquote>
-<ul>
-<li>如果在双处理器上，如果程序只有一个线程那么只使用一半的cpu资源  </li>
-<li>如果设计正确，不论是多核的处理器还是单处理器都能获得更高的吞吐率  </li>
-<li>在多处理器上不用多说，可以同时执行两个线程肯定比执行一个线程另一半的cpu空闲要好  </li>
-<li>在单处理器上，如果是单线程的程序，会在等待其他操作，如 IO 网络时，cpu处于空闲状态。如果是多线程程序那么则在等待这些操作时可以切到另外一个线程上执行任务，总的说就是可以再IO阻塞期间可以继续运行</li>
-</ul>
-</blockquote>
-</li>
-<li><p>建模的简单性</p>
-<blockquote>
-<p>如果程序只有一种类型的任务，那么肯定比包含多种不同类型的任务要更容易的去编码。多线程正是把多个不同种类的任务放在了不同的线程上。这样就可以每个线程处理自己的任务，形成一种串行执行的假象（其实是在并行）<br>比如servlet，我们不需要知道现在有多少个请求，也不需要知道套接字的输入流和输出流是否被阻塞，当使用Servlet时就像在使用一个单线程程序。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/25/为什么要在操作系统上实现多个程序同时执行/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -592,7 +718,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -602,7 +728,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
